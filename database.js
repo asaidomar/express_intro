@@ -30,6 +30,7 @@ function do_query(query_str, callback, fallback){
             console.log("query to be executed", query_str);
             if (err) {
                 if (fallback){
+                    console.error(err);
                     fallback(err);
                 }
             }
