@@ -52,7 +52,8 @@ router.get("/stat/users", (req, res) => {
 
 });
 
-router.get("/stat/user:id", (req, res) => {
+// /stat/user/1
+router.get("/stat/user/:id", (req, res) => {
     // affichage de l'utilisateur dont l'id est id
     let order_id = req.params.id;
     let query_str = `select * from User where id=${order_id}`;

@@ -9,7 +9,7 @@ const app = express();
 // port d'ecoute
 const port = 3000;
 
-// les échange sont faits en JSON
+// les échanges sont faits en JSON
 app.use(express.json());
 // app.use(express.urlencoded());
 

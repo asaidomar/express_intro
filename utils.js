@@ -6,6 +6,7 @@ const database = require('./database');
  * @param res
  */
 function display_json_results(query, res){
+    res.setHeader('Content-Type', 'application/json');
     database.do_query(query, (results) => res.end(JSON.stringify(results)))
 }
 
