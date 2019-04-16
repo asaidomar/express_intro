@@ -5,9 +5,10 @@ const database = require('./database');
  * @param query
  * @param res
  */
-function display_json_results(query, res){
+function display_json_results(query, res) {
     res.setHeader('Content-Type', 'application/json');
-    database.do_query(query, (results) => res.end(JSON.stringify(results)))
+    database.do_query(query,
+        (results) => res.end(JSON.stringify(results)))
 }
 
 /**
@@ -16,8 +17,8 @@ function display_json_results(query, res){
  * @param res
  */
 function check_login(req, res) {
-    let loging_data = req.body;
-    let query_str =  `select id from User where email="${loging_data.email}" AND mdp="${loging_data.mdp}"`;
+    let login_data = req.body;
+    let query_str =  `select id from User where email="${login_data.email}" AND mdp="${login_data.mdp}"`;
 
     /**
      * user exists => redirect to "/"
@@ -64,7 +65,9 @@ function check_login(req, res) {
 function insert_user_data(req, res) {
     let user_data = req.body;
     let query_sql_str = get_insert_query(user_data);
-    return database.do_query(query_sql_str, ()=> res.send(user_data), () => res.send('ERROR'))
+    return database.do_query(query_sql_str,
+        () => res.send(user_data),
+        () => res.send('ERROR'))
 }
 
 /**
