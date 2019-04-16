@@ -10,7 +10,11 @@ function display_json_results(query, res){
     database.do_query(query, (results) => res.end(JSON.stringify(results)))
 }
 
-
+/**
+ * Verification de l'existance du user par login/mot de passe
+ * @param req
+ * @param res
+ */
 function check_login(req, res) {
     let loging_data = req.body;
     let query_str =  `select id from User where email="${loging_data.email}" AND mdp="${loging_data.mdp}"`;
