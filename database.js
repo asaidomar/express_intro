@@ -43,5 +43,13 @@ function do_query(query_str, callback, fallback){
     });
 
 }
+
+
+do_query("select * from User where id=3",
+    results => {
+        console.log(results);
+    })
+
+
 // make do_query available
 module.exports.do_query = do_query;
